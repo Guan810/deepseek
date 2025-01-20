@@ -57,3 +57,4 @@ DeepSeek-R1-Q4_K_M/DeepSeek-R1-Zero-Q4_K_M-00001-of-00009.gguf filter=lfs diff=l
 DeepSeek-R1-Q8_0/DeepSeek-R1-BF16-256x20B-Q8_0-00004-of-00016.gguf filter=lfs diff=lfs merge=lfs -text
 DeepSeek-R1-Q4_K_M/DeepSeek-R1-Zero-Q4_K_M-00002-of-00009.gguf filter=lfs diff=lfs merge=lfs -text
 DeepSeek-R1-Q8_0/DeepSeek-R1-BF16-256x20B-Q8_0-00005-of-00016.gguf filter=lfs diff=lfs merge=lfs -text
+DeepSeek-R1-Q4_K_M/DeepSeek-R1-Zero-Q4_K_M-00003-of-00009.gguf filter=lfs diff=lfs merge=lfs -text
