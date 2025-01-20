@@ -9,8 +9,41 @@ tags:
 - transformers
 ---
 
-## ***See [our collection](https://huggingface.co/collections/unsloth/deepseek-r1-all-versions-678e1c48f5d2fce87892ace5) for versions of Deepseek-R1 including GGUF and original formats.***
-
+## ***See [our collection](https://huggingface.co/collections/unsloth/deepseek-r1-all-versions-678e1c48f5d2fce87892ace5) for versions of Deepseek-R1 including GGUF and 4-bit formats.***
+### Instructions to run this model in llama.cpp:
+Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](https://unsloth.ai/blog/deepseek-r1)
+1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
+2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
+3. Example with Q8_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
+   ```bash
+   ./llama.cpp/llama-cli \
+       --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q4_K_M.gguf \
+       --cache-type-k q8_0 \
+       --threads 16 \
+       --prompt '<｜User｜>What is 1+1?<｜Assistant｜>' \
+       -no-cnv
+   ```
+   Example output:
+   
+   ```txt
+    <think>
+    Okay, so I need to figure out what 1 plus 1 is. Hmm, where do I even start? I remember from school that adding numbers is pretty basic, but I want to make sure I understand it properly.
+    Let me think, 1 plus 1. So, I have one item and I add another one. Maybe like a apple plus another apple. If I have one apple and someone gives me another, I now have two apples. So, 1 plus 1 should be 2. That makes sense.
+    Wait, but sometimes math can be tricky. Could it be something else? Like, in a different number system maybe? But I think the question is straightforward, using regular numbers, not like binary or hexadecimal or anything.
+    I also recall that in arithmetic, addition is combining quantities. So, if you have two quantities of 1, combining them gives you a total of 2. Yeah, that seems right.
+    Is there a scenario where 1 plus 1 wouldn't be 2? I can't think of any...
+   ```
+   
+4. If you have a GPU (RTX 4090 for example) with 24GB, you can offload multiple layers to the GPU for faster processing. If you have multiple GPUs, you can probably offload more layers.
+   ```bash
+   ./llama.cpp/llama-cli \
+   --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q4_K_M.gguf
+   --cache-type-k q8_0 
+   --threads 16 
+   --prompt '<｜User｜>What is 1+1?<｜Assistant｜>'
+   --n-gpu-layers 20 \
+    -no-cnv
+   ```
 
 # Finetune LLMs 2-5x faster with 70% less memory via Unsloth!
 We have a free Google Colab Tesla T4 notebook for Llama 3.1 (8B) here: https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Llama3.1_(8B)-Alpaca.ipynb
