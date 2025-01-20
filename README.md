@@ -3,6 +3,7 @@ base_model: deepseek-ai/DeepSeek-R1
 language:
 - en
 library_name: transformers
+license: mit
 tags:
 - deepseek
 - unsloth
