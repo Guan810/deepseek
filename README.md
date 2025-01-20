@@ -15,11 +15,11 @@ tags:
 Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](https://unsloth.ai/blog/deepseek-r1)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
-3. Example with Q8_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
+3. Example with Q5_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
    ```bash
    ./llama.cpp/llama-cli \
-       --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q4_K_M.gguf \
-       --cache-type-k q8_0 \
+       --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q2_K_XS.gguf \
+       --cache-type-k q5_0 \
        --threads 16 \
        --prompt '<｜User｜>What is 1+1?<｜Assistant｜>' \
        -no-cnv
@@ -38,12 +38,12 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
 4. If you have a GPU (RTX 4090 for example) with 24GB, you can offload multiple layers to the GPU for faster processing. If you have multiple GPUs, you can probably offload more layers.
    ```bash
    ./llama.cpp/llama-cli \
-   --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q4_K_M.gguf
-   --cache-type-k q8_0 
-   --threads 16 
-   --prompt '<｜User｜>What is 1+1?<｜Assistant｜>'
-   --n-gpu-layers 20 \
-    -no-cnv
+     --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q2_K_XS.gguf \
+     --cache-type-k q5_0 \
+     --threads 16 
+     --prompt '<｜User｜>What is 1+1?<｜Assistant｜>'
+     --n-gpu-layers 20 \
+     -no-cnv
    ```
 
 # Finetune LLMs 2-5x faster with 70% less memory via Unsloth!
