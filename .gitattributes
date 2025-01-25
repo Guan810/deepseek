@@ -129,3 +129,13 @@ DeepSeek-R1-Q6_K/DeepSeek-R1-Q6_K-00008-of-00012.gguf filter=lfs diff=lfs merge=
 DeepSeek-R1-Q6_K/DeepSeek-R1-Q6_K-00005-of-00012.gguf filter=lfs diff=lfs merge=lfs -text
 DeepSeek-R1-Q6_K/DeepSeek-R1-Q6_K-00010-of-00012.gguf filter=lfs diff=lfs merge=lfs -text
 DeepSeek-R1-Q6_K/DeepSeek-R1-Q6_K-00003-of-00012.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00010-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00009-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00008-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00003-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00007-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00002-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00001-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00005-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00006-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
+Q5_K_M/DeepSeek-R1-Q5_K_M-00004-of-00010.gguf filter=lfs diff=lfs merge=lfs -text
