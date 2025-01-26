@@ -45,6 +45,12 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
      --n-gpu-layers 20 \
      -no-cnv
    ```
+5. If you want to merge the weights together, use this script:
+```
+./llama.cpp/llama-gguf-split --merge \
+    DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
+    merged_file.gguf
+```
 
 # Finetune LLMs 2-5x faster with 70% less memory via Unsloth!
 We have a free Google Colab Tesla T4 notebook for Llama 3.1 (8B) here: https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Llama3.1_(8B)-Alpaca.ipynb
