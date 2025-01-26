@@ -206,3 +206,4 @@ DeepSeek-R1-Q2_UD/DeepSeek-R1-Q2_UD-00003-of-00005.gguf filter=lfs diff=lfs merg
 DeepSeek-R1-Q2_UD/DeepSeek-R1-Q2_UD-00002-of-00005.gguf filter=lfs diff=lfs merge=lfs -text
 DeepSeek-R1-IQ1_UD_S/DeepSeek-R1-IQ1_S-00001-of-00003.gguf filter=lfs diff=lfs merge=lfs -text
 DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf filter=lfs diff=lfs merge=lfs -text
+DeepSeek-R1-Q2_K_L/DeepSeek-R1-Q2_K_XL-00001-of-00005.gguf filter=lfs diff=lfs merge=lfs -text
