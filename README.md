@@ -15,7 +15,7 @@ tags:
 <br>
 
 ## Instructions to run this model in llama.cpp:
-Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](https://unsloth.ai/blog/deepseek-r1)
+Or you can view more detailed instructions here: [unsloth.ai/blog/deepseekr1-dynamic](https://unsloth.ai/blog/deepseekr1-dynamic)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
 3. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
