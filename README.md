@@ -18,14 +18,16 @@ tags:
 Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](https://unsloth.ai/blog/deepseek-r1)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
-3. Example with Q5_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
+3. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
    ```bash
-   ./llama.cpp/llama-cli \
-       --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q2_K_XS.gguf \
-       --cache-type-k q5_0 \
-       --threads 16 \
-       --prompt '<｜User｜>What is 1+1?<｜Assistant｜>' \
-       -no-cnv
+  ./llama.cpp/llama-cli \
+	--model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
+	--cache-type-k q4_0 \
+	--threads 12 -no-cnv --prio 2 \
+	--temp 0.6 \
+	--ctx-size 8192 \
+	--seed 3407 \
+	--prompt "<｜User｜>Create a Flappy Bird game in Python.<｜Assistant｜>"
    ```
    Example output:
    
@@ -40,13 +42,14 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
    
 4. If you have a GPU (RTX 4090 for example) with 24GB, you can offload multiple layers to the GPU for faster processing. If you have multiple GPUs, you can probably offload more layers.
    ```bash
-   ./llama.cpp/llama-cli \
-     --model unsloth/DeepSeek-R1-GGUF/DeepSeek-R1-Q2_K_XS.gguf \
-     --cache-type-k q5_0 \
-     --threads 16 
-     --prompt '<｜User｜>What is 1+1?<｜Assistant｜>'
-     --n-gpu-layers 20 \
-     -no-cnv
+  ./llama.cpp/llama-cli \
+	--model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
+	--cache-type-k q4_0 \
+	--threads 12 -no-cnv --n-gpu-layers 7 --prio 2 \
+	--temp 0.6 \
+	--ctx-size 8192 \
+	--seed 3407 \
+	--prompt "<｜User｜>Create a Flappy Bird game in Python.<｜Assistant｜>"
    ```
 5. If you want to merge the weights together, use this script:
 ```
