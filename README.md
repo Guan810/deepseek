@@ -18,7 +18,8 @@ tags:
 Or you can view more detailed instructions here: [unsloth.ai/blog/deepseekr1-dynamic](https://unsloth.ai/blog/deepseekr1-dynamic)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
-3. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
+3. It's best to use `--min-p 0.05 or 0.1` to counteract very rare token predictions - I found this to work well especially for the 1.58bit model.
+4. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
 ```bash
    ./llama.cpp/llama-cli \
 	  --model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
