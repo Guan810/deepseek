@@ -14,7 +14,7 @@ tags:
 *Unsloth's DeepSeek-R1 [1.58-bit + 2-bit Dynamic Quants](https://unsloth.ai/blog/deepseekr1-dynamic) selectively avoids quantizing certain parameters, greatly increasing accuracy than standard 1-bit/2-bit.*
 <br>
 
-### Instructions to run this model in llama.cpp:
+## Instructions to run this model in llama.cpp:
 Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](https://unsloth.ai/blog/deepseek-r1)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
