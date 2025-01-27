@@ -19,7 +19,7 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
 3. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
-   ```bash
+```bash
    ./llama.cpp/llama-cli \
 	  --model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
 	  --cache-type-k q4_0 \
@@ -28,7 +28,7 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
 	  --ctx-size 8192 \
 	  --seed 3407 \
 	  --prompt "<｜User｜>Create a Flappy Bird game in Python.<｜Assistant｜>"
-   ```
+```
    Example output:
    
    ```txt
@@ -41,7 +41,7 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
    ```
    
 4. If you have a GPU (RTX 4090 for example) with 24GB, you can offload multiple layers to the GPU for faster processing. If you have multiple GPUs, you can probably offload more layers.
-   ```bash
+```bash
   ./llama.cpp/llama-cli \
     --model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
     --cache-type-k q4_0 \
@@ -51,13 +51,20 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
     --ctx-size 8192 \
     --seed 3407 \
     --prompt "<｜User｜>Create a Flappy Bird game in Python.<｜Assistant｜>"
-   ```
+```
 5. If you want to merge the weights together, use this script:
 ```
 ./llama.cpp/llama-gguf-split --merge \
     DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
     merged_file.gguf
 ```
+
+| MoE Bits     | Type   | Disk Size |  Accuracy | Link                      | Details   |
+| -------- | -------- | ------------ | ------------ | ---------------------|  ---------- |
+| 1.58bit | IQ1_S |   **131GB**    | Fair           | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ1_S) | MoE all 1.56bit. `down_proj` in MoE mixture of 2.06/1.56bit |
+| 1.73bit | IQ1_M |   **158GB**    | Good | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ1_M) | MoE all 1.56bit. `down_proj` in MoE left at 2.06bit |
+| 2.22bit | IQ2_XXS |   **183GB**    | Better      | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ2_XXS) | MoE all 2.06bit. `down_proj` in MoE mixture of 2.5/2.06bit |
+| 2.51bit | Q2_K_XL |   **212GB**    | Best | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-Q2_K_XL) | MoE all 2.5bit. `down_proj` in MoE mixture of 3.5/2.5bit |
 
 # Finetune LLMs 2-5x faster with 70% less memory via Unsloth!
 We have a free Google Colab Tesla T4 notebook for Llama 3.1 (8B) here: https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Llama3.1_(8B)-Alpaca.ipynb
