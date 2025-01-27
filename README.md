@@ -10,7 +10,10 @@ tags:
 - transformers
 ---
 
-## ***See [our collection](https://huggingface.co/collections/unsloth/deepseek-r1-all-versions-678e1c48f5d2fce87892ace5) for versions of Deepseek-R1 including GGUF and 4-bit formats.***
+## ***See [our collection](https://huggingface.co/collections/unsloth/deepseek-r1-all-versions-678e1c48f5d2fce87892ace5) for versions of Deepseek-R1 including GGUF & 4-bit formats.***
+*Unsloth's DeepSeek-R1 [1.58-bit + 2-bit Dynamic Quants](https://unsloth.ai/blog/deepseekr1-dynamic) selectively avoids quantizing certain parameters, greatly increasing accuracy than standard 1-bit/2-bit.*
+<br>
+
 ### Instructions to run this model in llama.cpp:
 Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](https://unsloth.ai/blog/deepseek-r1)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
