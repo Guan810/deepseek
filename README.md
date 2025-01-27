@@ -20,14 +20,14 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseek-r1](h
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
 3. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
    ```bash
-  ./llama.cpp/llama-cli \
-	--model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
-	--cache-type-k q4_0 \
-	--threads 12 -no-cnv --prio 2 \
-	--temp 0.6 \
-	--ctx-size 8192 \
-	--seed 3407 \
-	--prompt "<｜User｜>Create a Flappy Bird game in Python.<｜Assistant｜>"
+   ./llama.cpp/llama-cli \
+	  --model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
+	  --cache-type-k q4_0 \
+	  --threads 12 -no-cnv --prio 2 \
+	  --temp 0.6 \
+	  --ctx-size 8192 \
+	  --seed 3407 \
+	  --prompt "<｜User｜>Create a Flappy Bird game in Python.<｜Assistant｜>"
    ```
    Example output:
    
