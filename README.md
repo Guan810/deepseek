@@ -17,12 +17,34 @@ tags:
 ## Instructions to run this model in llama.cpp:
 Or you can view more detailed instructions here: [unsloth.ai/blog/deepseekr1-dynamic](https://unsloth.ai/blog/deepseekr1-dynamic)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
-2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp
-3. It's best to use `--min-p 0.05 or 0.1` to counteract very rare token predictions - I found this to work well especially for the 1.58bit model.
-4. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
+2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp. You can follow the build instructions below as well:
+```bash
+apt-get update
+apt-get install build-essential cmake curl libcurl4-openssl-dev -y
+git clone https://github.com/ggerganov/llama.cpp
+cmake llama.cpp -B llama.cpp/build \
+	-DBUILD_SHARED_LIBS=OFF -DGGML_CUDA=ON -DLLAMA_CURL=ON
+cmake --build llama.cpp/build --config Release -j --clean-first --target llama-quantize llama-cli
+cp llama.cpp/build/bin/llama-* llama.cpp
+```
+3. It's best to use `--min-p 0.05` to counteract very rare token predictions - I found this to work well especially for the 1.58bit model.
+4. Download the model via:
+```python
+# pip install huggingface_hub hf_transfer
+# import os # Optional for faster downloading
+# os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
+
+from huggingface_hub import snapshot_download
+snapshot_download(
+  repo_id = "unsloth/DeepSeek-R1-GGUF",
+  local_dir = "DeepSeek-R1-GGUF",
+  allow_patterns = ["*UD-IQ1_S*"], # Select quant type UD-IQ1_S for 1.58bit
+)
+```
+6. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
 ```bash
    ./llama.cpp/llama-cli \
-	  --model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
+	  --model DeepSeek-R1-GGUF/DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
 	  --cache-type-k q4_0 \
 	  --threads 12 -no-cnv --prio 2 \
 	  --temp 0.6 \
@@ -44,7 +66,7 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseekr1-dyn
 4. If you have a GPU (RTX 4090 for example) with 24GB, you can offload multiple layers to the GPU for faster processing. If you have multiple GPUs, you can probably offload more layers.
 ```bash
   ./llama.cpp/llama-cli \
-    --model DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
+    --model DeepSeek-R1-GGUF/DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
     --cache-type-k q4_0 \
     --threads 12 -no-cnv --prio 2 \
     --n-gpu-layers 7 \
@@ -56,16 +78,16 @@ Or you can view more detailed instructions here: [unsloth.ai/blog/deepseekr1-dyn
 5. If you want to merge the weights together, use this script:
 ```
 ./llama.cpp/llama-gguf-split --merge \
-    DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
+    DeepSeek-R1-GGUF/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
     merged_file.gguf
 ```
 
 | MoE Bits     | Type   | Disk Size |  Accuracy | Link                      | Details   |
 | -------- | -------- | ------------ | ------------ | ---------------------|  ---------- |
-| 1.58bit | IQ1_S |   **131GB**    | Fair           | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ1_S) | MoE all 1.56bit. `down_proj` in MoE mixture of 2.06/1.56bit |
-| 1.73bit | IQ1_M |   **158GB**    | Good | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ1_M) | MoE all 1.56bit. `down_proj` in MoE left at 2.06bit |
-| 2.22bit | IQ2_XXS |   **183GB**    | Better      | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ2_XXS) | MoE all 2.06bit. `down_proj` in MoE mixture of 2.5/2.06bit |
-| 2.51bit | Q2_K_XL |   **212GB**    | Best | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-Q2_K_XL) | MoE all 2.5bit. `down_proj` in MoE mixture of 3.5/2.5bit |
+| 1.58bit | UD-IQ1_S |   **131GB**    | Fair           | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ1_S) | MoE all 1.56bit. `down_proj` in MoE mixture of 2.06/1.56bit |
+| 1.73bit | UD-IQ1_M |   **158GB**    | Good | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ1_M) | MoE all 1.56bit. `down_proj` in MoE left at 2.06bit |
+| 2.22bit | UD-IQ2_XXS |   **183GB**    | Better      | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-IQ2_XXS) | MoE all 2.06bit. `down_proj` in MoE mixture of 2.5/2.06bit |
+| 2.51bit | UD-Q2_K_XL |   **212GB**    | Best | [Link](https://huggingface.co/unsloth/DeepSeek-R1-GGUF/tree/main/DeepSeek-R1-UD-Q2_K_XL) | MoE all 2.5bit. `down_proj` in MoE mixture of 3.5/2.5bit |
 
 # Finetune LLMs 2-5x faster with 70% less memory via Unsloth!
 We have a free Google Colab Tesla T4 notebook for Llama 3.1 (8B) here: https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Llama3.1_(8B)-Alpaca.ipynb
