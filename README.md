@@ -10,11 +10,27 @@ tags:
 - transformers
 ---
 
-## ***See [our collection](https://huggingface.co/collections/unsloth/deepseek-r1-all-versions-678e1c48f5d2fce87892ace5) for versions of Deepseek-R1 including GGUF & 4-bit formats.***
-*Unsloth's DeepSeek-R1 [1.58-bit + 2-bit Dynamic Quants](https://unsloth.ai/blog/deepseekr1-dynamic) selectively avoids quantizing certain parameters, greatly increasing accuracy than standard 1-bit/2-bit.*
-<br>
+<div>
+  <p style="margin-bottom: 0;">
+    <strong>See <a href="https://huggingface.co/collections/unsloth/deepseek-r1-all-versions-678e1c48f5d2fce87892ace5">our collection</a> for versions of Deepseek-R1 including GGUF & 4-bit formats.</strong>
+  </p>
+  <p style="margin-bottom: 0;">
+    <em>Unsloth's DeepSeek-R1 <a href="https://unsloth.ai/blog/deepseekr1-dynamic">1.58-bit + 2-bit Dynamic Quants</a> is selectively quantized, greatly improving accuracy over standard 1-bit/2-bit.</em>
+  </p>
+  <div style="display: flex; gap: 5px; align-items: center; ">
+    <a href="https://github.com/unslothai/unsloth/">
+      <img src="https://github.com/unslothai/unsloth/raw/main/images/unsloth%20new%20logo.png" width="133">
+    </a>
+    <a href="https://discord.gg/unsloth">
+      <img src="https://github.com/unslothai/unsloth/raw/main/images/Discord%20button.png" width="173">
+    </a>
+    <a href="https://docs.unsloth.ai">
+      <img src="https://raw.githubusercontent.com/unslothai/unsloth/refs/heads/main/images/documentation%20green%20button.png" width="143">
+    </a>
+  </div>
+<h1 style="margin-top: 0rem;">Instructions to run this model in llama.cpp:</h2>
+</div>
 
-## Instructions to run this model in llama.cpp:
 Or you can view more detailed instructions here: [unsloth.ai/blog/deepseekr1-dynamic](https://unsloth.ai/blog/deepseekr1-dynamic)
 1. Do not forget about `<｜User｜>` and `<｜Assistant｜>` tokens! - Or use a chat template formatter
 2. Obtain the latest `llama.cpp` at https://github.com/ggerganov/llama.cpp. You can follow the build instructions below as well:
