@@ -24,7 +24,7 @@ tags:
     <a href="https://discord.gg/unsloth">
       <img src="https://github.com/unslothai/unsloth/raw/main/images/Discord%20button.png" width="173">
     </a>
-    <a href="https://docs.unsloth.ai">
+    <a href="https://docs.unsloth.ai/basics/tutorial-how-to-run-deepseek-r1-on-your-own-local-device">
       <img src="https://raw.githubusercontent.com/unslothai/unsloth/refs/heads/main/images/documentation%20green%20button.png" width="143">
     </a>
   </div>
