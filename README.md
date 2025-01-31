@@ -57,7 +57,7 @@ snapshot_download(
   allow_patterns = ["*UD-IQ1_S*"], # Select quant type UD-IQ1_S for 1.58bit
 )
 ```
-6. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
+5. Example with Q4_0 K quantized cache **Notice -no-cnv disables auto conversation mode**
 ```bash
    ./llama.cpp/llama-cli \
 	  --model DeepSeek-R1-GGUF/DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
@@ -79,7 +79,7 @@ snapshot_download(
     Is there a scenario where 1 plus 1 wouldn't be 2? I can't think of any...
    ```
    
-4. If you have a GPU (RTX 4090 for example) with 24GB, you can offload multiple layers to the GPU for faster processing. If you have multiple GPUs, you can probably offload more layers.
+6. If you have a GPU (RTX 4090 for example) with 24GB, you can offload multiple layers to the GPU for faster processing. If you have multiple GPUs, you can probably offload more layers.
 ```bash
   ./llama.cpp/llama-cli \
     --model DeepSeek-R1-GGUF/DeepSeek-R1-UD-IQ1_S/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
@@ -91,7 +91,7 @@ snapshot_download(
     --seed 3407 \
     --prompt "<｜User｜>Create a Flappy Bird game in Python.<｜Assistant｜>"
 ```
-5. If you want to merge the weights together, use this script:
+7. If you want to merge the weights together, use this script:
 ```
 ./llama.cpp/llama-gguf-split --merge \
     DeepSeek-R1-GGUF/DeepSeek-R1-UD-IQ1_S-00001-of-00003.gguf \
